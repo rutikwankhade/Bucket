@@ -1,12 +1,16 @@
 import React from 'react';
 import Signup from "./Signup"
+import { AuthProvider } from '../contexts/AuthContext';
+
 
 const App = () => {
   return (
-    <div className="text-center mx-auto mt-20 ">
+    <AuthProvider>
+      <div className="text-center mx-auto mt-20 ">
 
-      <Signup />
-    </div>
+        <Signup />
+      </div>
+    </AuthProvider>
   );
 }
 
