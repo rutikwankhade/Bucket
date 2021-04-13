@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext';
-import {Link} from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 const Signup = () => {
 
     const userNameRef = useRef()
@@ -10,6 +10,7 @@ const Signup = () => {
     const { signup, currentUser } = useAuth()
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
+    const history = useHistory();
 
 
 
@@ -23,7 +24,7 @@ const Signup = () => {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
-
+            history.push('/')
         } catch {
             setError('Failed to create an account')
         }

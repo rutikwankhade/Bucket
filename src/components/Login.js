@@ -1,28 +1,29 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
-import {Link} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Login = () => {
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { signup } = useAuth()
+    const { login } = useAuth()
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
+
 
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
-
+            await login(emailRef.current.value, passwordRef.current.value)
+            history.push('/')
         } catch {
-            setError('Failed to create an account')
+            setError('Failed to sign in')
         }
         setLoading(false)
     }
@@ -33,13 +34,13 @@ const Login = () => {
             {error && <p className="p-2 bg-red-100 m-4 mx-20">{error}</p>}
             <form onSubmit={handleSubmit}
                 className="flex flex-col justify-center md:px-20 px-10">
-               
+
 
                 <input type="email" placeholder="Email" ref={emailRef}
                     className="border-2 p-2 m-2"></input>
                 <input type="password" placeholder="Password" ref={passwordRef}
                     className="border-2 p-2 m-2"></input>
-               
+
 
                 <button disabled={loading}
                     className="px-5 py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Log In</button>
