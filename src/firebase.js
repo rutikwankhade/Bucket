@@ -11,5 +11,6 @@ const app =firebase.initializeApp({
 
 })
 
+//gives authentication instance
 export const auth=app.auth()
 export default app;
