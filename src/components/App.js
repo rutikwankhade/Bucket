@@ -1,16 +1,26 @@
 import React from 'react';
-import Signup from "./Signup"
 import { AuthProvider } from '../contexts/AuthContext';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Signup from "./Signup"
+import Login from './Login'
+import Dashboard from './Dashboard'
 
 
 const App = () => {
   return (
-    <AuthProvider>
-      <div className="text-center mx-auto mt-20 ">
+    <div>
+      <Router>
+        <AuthProvider>
+          <Switch>
+            <Route exact path="/" component={Dashboard}/>
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/login" component={Login} />
 
-        <Signup />
-      </div>
-    </AuthProvider>
+          </Switch>
+         
+        </AuthProvider>
+      </Router>
+    </div>
   );
 }
 
