@@ -50,7 +50,7 @@ const Signup = () => {
                 <button disabled={loading}
                     className="px-5 py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Sign up</button>
                 <div>
-                    <h2>Already a user? <Link to="/login">Log in</Link> </h2>
+                    <h2>Already a user? <Link to="/login" className="text-indigo-500 font-semibold">Log in</Link> </h2>
                 </div>
             </form>
         </div>
