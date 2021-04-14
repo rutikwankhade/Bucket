@@ -23,7 +23,7 @@ const Signup = () => {
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await signup(emailRef.current.value, passwordRef.current.value, userNameRef.current.value)
             history.push('/')
         } catch {
             setError('Failed to create an account')
@@ -34,7 +34,6 @@ const Signup = () => {
     return (
         <div className="mt-20 text-center md:w-5/12 mx-auto border-2 md:p-10 pt-20 rounded">
             <h2 className="text-2xl">Signup</h2>
-            {currentUser}
             {error && <p className="p-2 bg-red-100 m-4 mx-20">{error}</p>}
             <form onSubmit={handleSubmit}
                 className="flex flex-col justify-center md:px-20 px-10">
