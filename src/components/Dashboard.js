@@ -37,8 +37,8 @@ const Dashboard = () => {
         listRef.add({
             title: titleRef.current.value,
             description: descRef.current.value,
-            completed:false,
-            createdAt: firestore.FieldValue.serverTimestamp()
+            completed: false,
+            // createdAt: firestore.FieldValue.serverTimestamp()
 
         })
     }
@@ -65,13 +65,25 @@ const Dashboard = () => {
                             className="w-96 mt-2 p-2 border-2 rounded outline-none" />
                         <textarea placeholder="Tell us more!" ref={descRef}
                             className="mt-2 p-2 h-40 border-2 rounded outline-none" />
-                        <button className="text-white text-xl bg-indigo-400 hover:bg-indigo-500 rounded p-2 m-2">Add to my Bucket List</button>
+                        <button className="text-white text-xl bg-indigo-400 hover:bg-indigo-500 rounded p-2 mt-2">Add to my Bucket List</button>
                     </form>
 
                 </div>
-                <div className="overflow-y-scroll">
+                <div className="overflow-y-scroll w-full p-10">
                     {error && <span className="bg-red-100 p-2 m-4">{error}</span>}
-                    <h1 className="text-center p-40 text-2xl font-bold italic">📃 Create your Bucket list and 🎉 fulfill your dreams</h1>
+                    <h1 className="text-center  text-2xl font-bold italic">📃 Create your Bucket list and 🎉 fulfill your dreams</h1>
+
+                    <div className="flex flex-row flex-wrap mt-10 justify-center">
+                        {list && list.map(wish => {
+                            return (
+                                <div className="border-2 p-6 m-2 rounded-md w-5/12 border-t-8 border-pink-200">
+                                    <h1 className="text-2xl font-semibold">{wish.title}</h1>
+                                    <p className="mt-2 italic">{wish.description}</p>
+                                </div>
+                            )
+                        })}
+                    </div>
+
                 </div>
             </div>
         </div>
