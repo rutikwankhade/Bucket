@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import avatar from '../assets/avatar.svg'
 import { useAuth } from '../contexts/AuthContext'
 import { useHistory } from 'react-router-dom'
+import { firestore } from '../firebase'
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const Dashboard = () => {
+    
     const [error, setError] = useState("")
-
     const { currentUser, logout } = useAuth();
-
+    const listRef = firestore.collection(`users/${currentUser.uid}/list`)
+    const [list] = useCollectionData(listRef)
+    
     console.log(currentUser)
     const history = useHistory()
 
@@ -21,6 +25,16 @@ const Dashboard = () => {
         }
 
     }
+
+
+
+   
+    const handleSumbitItem = () => {
+        listRef.add({
+            text: 'hellllo'
+        })
+    }
+
 
     return (
         <div className="">
@@ -39,7 +53,7 @@ const Dashboard = () => {
                 <div>
                     {error && <span className="bg-red-100 p-2 m-4">{error}</span>}
                     <h1 className="text-center p-40 text-2xl font-bold italic">📃 Create your Bucket list and 🎉 fulfill your dreams</h1>
-
+                    <button onClick={handleSumbitItem}>add</button>
                 </div>
             </div>
         </div>
