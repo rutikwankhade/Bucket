@@ -1,5 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef} from 'react';
 import avatar from '../assets/avatar.svg'
+import bucket from '../assets/bucket.png'
+import closeIcon from '../assets/close.svg'
+
+
 import { useAuth } from '../contexts/AuthContext'
 import { useHistory } from 'react-router-dom'
 import { firestore } from '../firebase'
@@ -10,12 +14,12 @@ const Dashboard = () => {
     const [error, setError] = useState("")
     const { currentUser, logout } = useAuth();
     const listRef = firestore.collection(`users/${currentUser.uid}/list`)
-    const [list] = useCollectionData(listRef);
+    const [list] = useCollectionData(listRef, { idField: "id" });
 
     const titleRef = useRef();
     const descRef = useRef();
 
-    console.log(currentUser)
+    // console.log(currentUser)
     const history = useHistory()
 
     const handleLogout = async () => {
@@ -28,8 +32,7 @@ const Dashboard = () => {
         }
     }
 
-
-
+  
 
     const handleSubmitItem = (e) => {
         e.preventDefault();
@@ -43,7 +46,14 @@ const Dashboard = () => {
         })
     }
 
+    const handleCompleteWish = (id, completed) => {
+        listRef.doc(id).set({ completed: !completed }, { merge: true })
 
+    }
+
+    const handleDeleteWish = (id) => {
+        listRef.doc(id).delete()
+    }
 
 
     return (
@@ -73,15 +83,35 @@ const Dashboard = () => {
                     {error && <span className="bg-red-100 p-2 m-4">{error}</span>}
                     <h1 className="text-center  text-2xl font-bold italic">📃 Create your Bucket list and 🎉 fulfill your dreams</h1>
 
-                    <div className="flex flex-row flex-wrap mt-10 justify-center">
-                        {list && list.map(wish => {
-                            return (
-                                <div className="border-2 p-6 m-2 rounded-md w-5/12 border-t-8 border-pink-200">
-                                    <h1 className="text-2xl font-semibold">{wish.title}</h1>
-                                    <p className="mt-2 italic">{wish.description}</p>
-                                </div>
-                            )
-                        })}
+                    <div >
+
+
+                        <div className="flex flex-col mt-10 justify-center items-center">
+
+
+                            {list && list.map(wish => {
+                                return (
+                                    <div key={wish.id}
+                                        className="border-2  m-2 rounded-md w-10/12 border-t-8 border-pink-200 flex flex-row">
+                                        <div className="p-6">
+                                            <h1 className="text-2xl font-semibold">{wish.title}</h1>
+                                            <p className="mt-2 italic">{wish.description}</p>
+                                        </div>
+
+                                        <div className="ml-auto mr-2 flex flex-col items-center">
+
+                                            <img src={closeIcon} alt="delete" onClick={() => handleDeleteWish(wish.id)}
+                                                className="bg-gray-50 rounded-full p-1 w-8 h-8  mt-2 mb-auto cursor-pointer" />
+                                            <button onClick={() => handleCompleteWish(wish.id, wish.completed)}
+                                                className="mb-2 mt-auto bg-indigo-400 text-white px-4 p-1 rounded ">Done</button>
+                                        </div>
+
+                                    </div>
+                                )
+                            })}
+                        </div>
+
+
                     </div>
 
                 </div>
