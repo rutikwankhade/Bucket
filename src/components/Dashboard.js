@@ -64,8 +64,8 @@ const Dashboard = () => {
                     className="bg-indigo-400 text-white px-4 rounded ml-auto mr-10">Log out</button>
 
             </div>
-            <div className="flex  ">
-                <div className=" p-10 sticky bg-gray-100 flex flex-col items-center">
+            <div className="flex flex-row ">
+                <div className=" p-10 fixed h-screen bg-gray-100 flex flex-col items-center">
                     <img src={avatar} alt="avatar" className="w-24 mx-auto mt-12 border-4 border-white rounded-full" />
                     <h2 className="text-xl text-center mt-6 bg-pink-200 px-6 py-1 rounded-full m-4">{currentUser.email}</h2>
 
@@ -79,7 +79,7 @@ const Dashboard = () => {
                     </form>
 
                 </div>
-                <div className="overflow-y-scroll w-full p-10">
+                <div className=" p-10  w-8/12 ml-auto mr-2">
                     {error && <span className="bg-red-100 p-2 m-4">{error}</span>}
                     <h1 className="text-center  text-2xl font-bold italic">📃 Create your Bucket list and 🎉 fulfill your dreams</h1>
 
