@@ -44,6 +44,9 @@ const Dashboard = () => {
             // createdAt: firestore.FieldValue.serverTimestamp()
 
         })
+
+        titleRef.current.value=""
+        descRef.current.value=""
     }
 
     const handleCompleteWish = (id, completed) => {
@@ -71,9 +74,9 @@ const Dashboard = () => {
 
 
                     <form onSubmit={handleSubmitItem} className="flex flex-col">
-                        <input placeholder="What's something you always wanted to do?" ref={titleRef}
+                        <input required placeholder="What's something you always wanted to do?" ref={titleRef}
                             className="w-96 mt-2 p-2 border-2 rounded outline-none" />
-                        <textarea placeholder="Tell us more!" ref={descRef}
+                        <textarea required placeholder="Tell us more!" ref={descRef}
                             className="mt-2 p-2 h-40 border-2 rounded outline-none" />
                         <button className="text-white text-xl bg-indigo-400 hover:bg-indigo-500 rounded p-2 mt-2">Add to my Bucket List</button>
                     </form>
