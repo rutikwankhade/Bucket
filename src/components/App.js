@@ -11,7 +11,7 @@ import PrivateRoute from './PrivateRoute'
 const App = () => {
   return (
     <div>
-      <Router>
+      <Router basename="/">
         <AuthProvider>
           <Switch>
           <Route exact path="/" component={Home} />
