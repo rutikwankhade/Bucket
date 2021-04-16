@@ -1,6 +1,5 @@
 import React, { useState, useRef} from 'react';
 import avatar from '../assets/avatar.svg'
-import bucket from '../assets/bucket.png'
 import closeIcon from '../assets/close.svg'
 
 
