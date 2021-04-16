@@ -11,14 +11,16 @@ import PrivateRoute from './PrivateRoute'
 const App = () => {
   return (
     <div>
+
       <Router basename="/">
         <AuthProvider>
+
           <Switch>
           <Route exact path="/" component={Home} />
 
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
+            <PrivateRoute  path="/dashboard" component={Dashboard} />
+            <Route  path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
           </Switch>
 
         </AuthProvider>
