@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div>
 
-      <Router basename={window.location.pathname || ''}>
+      <Router >
         <AuthProvider>
 
           <Switch>
