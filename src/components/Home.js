@@ -62,7 +62,7 @@ const Home = () => {
 
 
             <div className="m-20  flex flex-row justify-center ">
-                <img src={listImg} className="w-1/3" />
+                <img src={listImg} className="w-1/3" alt="illustration"/>
                 <div className="w-1/2 mt-24">
                     <h2 className="text-3xl font-bold mb-4">Why create a bucket list?</h2>
                     <div className="text-xl">
@@ -81,7 +81,7 @@ const Home = () => {
                     <p className="text-xl mt-6">Don't limit yourself, Don't think about if you can or should. Imagine what would you do if you had unlimited time, money and resources.</p>
 
                 </div>
-                <img src={flyImg} className="w-1/3" />
+                <img src={flyImg} className="w-1/3" alt="illustration" />
             </div>
 
             <div className="w-1/2 mx-44 my-20">
