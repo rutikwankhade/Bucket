@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext';
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
+
+import signupImg from '../assets/signupImg.png'
 const Signup = () => {
 
-    const userNameRef = useRef()
+    // const userNameRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -23,7 +25,7 @@ const Signup = () => {
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value, userNameRef.current.value)
+            await signup(emailRef.current.value, passwordRef.current.value)
             history.push('/dashboard')
         } catch {
             setError('Failed to create an account')
@@ -32,27 +34,37 @@ const Signup = () => {
     }
 
     return (
-        <div className="mt-20 text-center md:w-5/12 mx-auto border-2 md:p-10 pt-20 rounded">
-            <h2 className="text-2xl">Signup</h2>
-            {error && <p className="p-2 bg-red-100 m-4 mx-20">{error}</p>}
-            <form onSubmit={handleSubmit}
-                className="flex flex-col justify-center md:px-20 px-10">
-                <input type="text" placeholder="Username" ref={userNameRef}
-                    className="border-2 p-2 m-2"></input>
+        <div>
 
-                <input type="email" placeholder="Email" ref={emailRef}
-                    className="border-2 p-2 m-2"></input>
-                <input type="password" placeholder="Password" ref={passwordRef}
-                    className="border-2 p-2 m-2"></input>
-                <input type="password" placeholder="Confirm Password" ref={passwordConfirmRef}
-                    className="border-2 p-2 m-2"></input>
+            <div className="bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-200  top-0 text-xl text-white p-4 flex flex-row">
+                <Link to="/" className="text-2xl font-semibold md:px-20 px-2">Bucket</Link>
+            </div>
 
-                <button disabled={loading}
-                    className="px-5 py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Sign up</button>
-                <div>
-                    <h2>Already a user? <Link to="/login" className="text-indigo-500 font-semibold">Log in</Link> </h2>
+            <div className="md:mt-10 flex items-center justify-center">
+                <div className="text-center w-full md:w-4/12 mx-auto py-20 px-4 md:border-2 rounded-2xl">
+                    <h2 className="text-2xl mb-4">Signup</h2>
+                    {error && <p className="p-2 bg-red-100 m-4 mx-20">{error}</p>}
+                    <form onSubmit={handleSubmit}
+                        className="flex flex-col justify-center px-10">
+                        {/* <input type="text" placeholder="Username" ref={userNameRef}
+                    className="border-2 p-2 m-2 rounded"></input> */}
+
+                        <input type="email" placeholder="Email" ref={emailRef}
+                            className="border-2 p-2 m-2 rounded"></input>
+                        <input type="password" placeholder="Password" ref={passwordRef}
+                            className="border-2 p-2 m-2 rounded"></input>
+                        <input type="password" placeholder="Confirm Password" ref={passwordConfirmRef}
+                            className="border-2 p-2 m-2 rounded"></input>
+
+                        <button disabled={loading}
+                            className="px-5 py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Sign up</button>
+                        <div>
+                            <h2>Already a user? <Link to="/login" className="text-indigo-500 font-semibold">Log in</Link> </h2>
+                        </div>
+                    </form>
                 </div>
-            </form>
+                <img src={signupImg} alt="illustration" className="mt-10 md:mr-20 md:w-1/3 md:block hidden" />
+            </div>
         </div>
     );
 }

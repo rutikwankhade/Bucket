@@ -61,9 +61,9 @@ const Home = () => {
 
 
 
-            <div className="m-20  flex flex-row justify-center ">
-                <img src={listImg} className="w-1/3" alt="illustration"/>
-                <div className="w-1/2 mt-24">
+            <div className="m-20  flex md:flex-row flex-col justify-center ">
+                <img src={listImg} className="md:w-1/3" alt="illustration"/>
+                <div className="md:w-1/2 mt-24">
                     <h2 className="text-3xl font-bold mb-4">Why create a bucket list?</h2>
                     <div className="text-xl">
                         <p>List and track your goals, wishes and childhood dreams. Do things that you love and care about.</p>
@@ -74,17 +74,17 @@ const Home = () => {
 
             </div>
 
-            <div className="m-20 flex flex-row justify-center">
-                <div className="w-1/2 mt-24">
+            <div className="m-20 flex md:flex-row flex-col-reverse justify-center">
+                <div className="md:w-1/2 mt-24">
                     <h2 className="text-3xl font-bold mb-4">How to create one?</h2>
                     <p className="text-xl">Start with the first things that come into your head when you ask yourself, what's the thing that always wanted to do.</p>
                     <p className="text-xl mt-6">Don't limit yourself, Don't think about if you can or should. Imagine what would you do if you had unlimited time, money and resources.</p>
 
                 </div>
-                <img src={flyImg} className="w-1/3" alt="illustration" />
+                <img src={flyImg} className="md:w-1/3" alt="illustration" />
             </div>
 
-            <div className="w-1/2 mx-44 my-20">
+            <div className="md:w-1/2 md:mx-44 my-20">
                 <Link to="signup">
                     <button className="mx-auto bg-indigo-400 text-white text-2xl px-8 py-4 rounded">📃 Create your Bucket list now</button>
                 </Link>
