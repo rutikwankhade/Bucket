@@ -1,7 +1,6 @@
 {
   "name": "cra-tailwind-starter",
   "homepage": "https://bucket.vercel.app/",
-
   "version": "0.1.0",
   "private": true,
   "dependencies": {

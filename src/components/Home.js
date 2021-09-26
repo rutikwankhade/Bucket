@@ -2,7 +2,7 @@ import React from 'react';
 import Typical from 'react-typical'
 import { Link } from 'react-router-dom'
 
-import Hero from '../assets/hero.png'
+import Hero from '../assets/hero-4.jpg'
 import bucket from '../assets/bucket.png'
 import listImg from '../assets/list.png'
 import flyImg from '../assets/fly.png'
@@ -10,31 +10,51 @@ import flyImg from '../assets/fly.png'
 
 const Home = () => {
     return (
-        <div className="">
-            <div className="bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-200  top-0 text-xl text-white p-4 flex flex-row">
-                <h1 className="text-2xl font-semibold md:px-20 px-2">Bucket</h1>
-                <Link to="/login" className="ml-auto md:mr-10 mr-2 border-white px-6 py-1 rounded bg-pink-300 border-2 ">Log in</Link>
+        <div className="bg-white">
+            <div className="  top-0 text-xl bg-white border p-4 flex flex-row md:px-28">
+                <h1 className="text-2xl font-bold md:px-20 ">Bucket</h1>
+                <Link to="/login" className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded bg-indigo-400 shadow text-white  ">Log in</Link>
             </div>
-            <div className="flex md:flex-row flex-col justify-center md:px-24">
-                <div className="md:w-1/2 md:p-20 p-6 md:pt-32 pt-20">
-                    <div className="my-6">
 
-                        <h3 className="text-xl font-semibold ml-2">I always wanted to</h3>
-                        <Typical
-                            steps={['Go on a treck', 1000, 'Run a marathon', 1000, 'Write a novel', 1000]}
-                            loop={Infinity}
-                            wrapper="p"
-                            className="text-2xl w-80 italic font-semibold text-indigo-400 rounded-md p-2 m-2 shadow"
-                        />
+            <div className="bg-purple-50 m-0 p-2">
+                
+
+
+            <div className="md:mx-40 md:my-10  bg-white shadow-sm  mx-auto  flex md:flex-row flex-col justify-center items-center">
+                <div className="md:w-8/12      ">
+
+                    <div className="p-12">
+
+                        <h1 className="mt-4 text-5xl font-bold ">Create your bucket list and fulfill your dreams.</h1>
+
+
+                        <div className="my-6">
+
+                            <h3 className="text-xl font-semibold ">I always wanted to</h3>
+                            <Typical
+                                steps={['Go on a treck', 1000, 'Run a marathon', 1000, 'Write a novel', 1000]}
+                                loop={Infinity}
+                                wrapper="p"
+                                className="text-2xl italic font-semibold "
+                            />
+                        </div>
+
+                        <Link to="signup">
+                            <button className="mt-4 bg-indigo-400 font-bold shadow  text-white rounded px-6 py-2 text-xl">Let's do this !</button>
+                        </Link>
+
                     </div>
-                    <h1 className="mt-4 text-4xl font-bold text-gray-600">Create your bucket list and fulfill your dreams.</h1>
-                    <Link to="signup">
-                        <button className="mt-8 bg-indigo-400 text-white rounded px-6 py-2 text-xl">Let's do this !</button>
-                    </Link>
+
 
                 </div>
-                <img src={Hero} alt="hero" className="" />
-            </div>
+
+                <img src={Hero} alt="hero" className="rounded w-6/12" />
+
+                </div>
+                
+                </div>
+
+
 
             <div className=" flex md:flex-row flex-col  border-2 shadow p-10 md:w-8/12 rounded-md mx-auto m-2 my-20">
                 <img src={bucket} alt="bucket" className="w-32 h-32 mr-6" />
@@ -62,7 +82,7 @@ const Home = () => {
 
 
             <div className="m-20  flex md:flex-row flex-col justify-center ">
-                <img src={listImg} className="md:w-1/3" alt="illustration"/>
+                <img src={listImg} className="md:w-1/3" alt="illustration" />
                 <div className="md:w-1/2 mt-24">
                     <h2 className="text-3xl font-bold mb-4">Why create a bucket list?</h2>
                     <div className="text-xl">
@@ -91,8 +111,8 @@ const Home = () => {
             </div>
 
             <footer className="bg-purple-100 p-8">
-                <p className="font-semibold italic text-right">Built with ❤ by 
-                <a href="https://rutikwankhade.dev" className="text-indigo-400"> Rutik Wankhade</a></p>
+                <p className="font-semibold italic text-right">Built with ❤ by
+                    <a href="https://rutikwankhade.dev" className="text-indigo-400"> Rutik Wankhade</a></p>
             </footer>
         </div>
     );
