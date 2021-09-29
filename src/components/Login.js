@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom';
+import googleIcon from '../assets/google.png'
 
 import loginImg from '../assets/loginImg.png'
 
@@ -8,7 +9,7 @@ const Login = () => {
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login } = useAuth()
+    const { login, signupWithGoogle } = useAuth()
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
     const history = useHistory()
@@ -52,15 +53,23 @@ const Login = () => {
                         <button disabled={loading}
                             className="px-5 py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Log In</button>
                         <div>
+
+                            <button
+                                onClick={signupWithGoogle}
+                                className="border flex items-center justify-center shadow-sm rounded my-2 hover:bg-gray-100 p-2 text-xl"
+                            >
+                                <img src={googleIcon} className="mx-2 h-6 w-6" alt="google" />
+                                Continue with google
+                            </button>
                             <h2>Need an account? <Link to="/signup" className="text-indigo-500 font-semibold">Sign Up</Link></h2>
                         </div>
                     </form>
                 </div>
 
                 <img src={loginImg} alt="illustration" className="w-1/3 mx-auto hidden md:block" />
-                </div>
-
             </div>
+
+        </div>
     );
 }
 

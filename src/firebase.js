@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 import "firebase/auth"
 import 'firebase/firestore'
 
-const app =firebase.initializeApp({
+const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
     projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
@@ -11,7 +11,13 @@ const app =firebase.initializeApp({
     appId: process.env.REACT_APP_FIREBASE_API_ID
 })
 
-//gives authentication instance
-export const auth=app.auth()
-export const firestore=app.firestore()
+// for signin with google
+export const provider = new firebase.auth.GoogleAuthProvider();
+
+
+// gives authentication instance
+export const auth = app.auth()
+
+// database
+export const firestore = app.firestore()
 export default app;

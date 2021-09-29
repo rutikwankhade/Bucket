@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
-
+import googleIcon from '../assets/google.png'
 import signupImg from '../assets/signupImg.png'
 const Signup = () => {
 
@@ -9,7 +9,7 @@ const Signup = () => {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup } = useAuth()
+    const { signup, signupWithGoogle } = useAuth()
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
     const history = useHistory();
@@ -58,10 +58,22 @@ const Signup = () => {
 
                         <button disabled={loading}
                             className="px-5 py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Sign up</button>
+
+                        <button
+                            onClick={signupWithGoogle}
+                            className="border flex items-center justify-center shadow-sm rounded my-2 hover:bg-gray-100 p-2 text-xl"
+                        >
+                            <img src={googleIcon} className="mx-2 h-6 w-6" alt="google" />
+                            Continue with google
+                        </button>
+
+
                         <div>
                             <h2>Already a user? <Link to="/login" className="text-indigo-500 font-semibold">Log in</Link> </h2>
                         </div>
+
                     </form>
+
                 </div>
                 <img src={signupImg} alt="illustration" className="mt-10 md:mr-20 md:w-1/3 md:block hidden" />
             </div>
