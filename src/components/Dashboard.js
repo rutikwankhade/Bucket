@@ -1,17 +1,22 @@
-import React, { useState, useRef} from 'react';
-import avatar from '../assets/avatar.svg'
+import React, {  useRef,useEffect} from 'react';
+// import avatar from '../assets/avatar.svg'
 import closeIcon from '../assets/close.svg'
 
 
 import { useAuth } from '../contexts/AuthContext'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import { firestore } from '../firebase'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const Dashboard = () => {
 
-    const [error, setError] = useState("")
-    const { currentUser, logout } = useAuth();
+
+    useEffect(() => {
+        console.log(currentUser)
+    })
+
+    // const [error, setError] = useState("")
+    const { currentUser } = useAuth();
     const listRef = firestore.collection(`users/${currentUser.uid}/list`)
     const [list] = useCollectionData(listRef, { idField: "id" });
 
@@ -23,17 +28,7 @@ const Dashboard = () => {
     // const [AllList] = useCollectionData(allListRef);
 
     // console.log(currentUser)
-    const history = useHistory()
-
-    const handleLogout = async () => {
-        setError('')
-        try {
-            await logout()
-            history.push('/login')
-        } catch {
-            setError('Failed to logout')
-        }
-    }
+    // const history = useHistory()
 
   
 
@@ -72,16 +67,13 @@ const Dashboard = () => {
 
 
     return (
-        <div className="">
-            <div className="bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-200  sticky top-0 text-xl text-white p-4 flex flex-row">
-                <h1 className="text-2xl font-semibold px-20">Bucket</h1>
-                <button onClick={handleLogout}
-                    className="bg-purple-400 shadow text-white px-4 rounded ml-auto mr-10">Log out</button>
+        <div>
+          
+            <div className="flex md:flex-row flex-col">
+                <div className="bg-pink-50 md:w-4/12 p-10 pt-6 fixed h-screen flex flex-col items-center">
+                    <img src={currentUser.photoURL } alt="avatar" className="w-24 mx-auto mt-12 border-4 border-white rounded-full" />
+                                        <h1 className="text-2xl text-center mt-6  px-6 py-1  m-4">{currentUser.displayName}</h1>
 
-            </div>
-            <div className="flex flex-row ">
-                <div className="bg-pink-50 w-4/12 p-10 pt-6 fixed h-screen flex flex-col items-center">
-                    <img src={avatar} alt="avatar" className="w-24 mx-auto mt-12 border-4 border-white rounded-full" />
                     <h2 className="text-xl text-center mt-6 bg-pink-200 px-6 py-1 rounded-full m-4">{currentUser.email}</h2>
 
 
@@ -95,7 +87,7 @@ const Dashboard = () => {
 
                 </div>
                 <div className="rounded-3xl p-10  w-8/12 ml-auto mr-2  h-screen">
-                    {error && <span className="bg-red-100 p-2 m-4">{error}</span>}
+                    {/* {error && <span className="bg-red-100 p-2 m-4">{error}</span>} */}
                     {/* <h1 className="text-center  text-2xl font-bold italic">📃 Create your Bucket list and 🎉 fulfill your dreams</h1> */}
 
                     <div >
