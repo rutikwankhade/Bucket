@@ -2,6 +2,7 @@ import React from 'react';
 import Typical from 'react-typical'
 import { Link } from 'react-router-dom'
 
+
 import Hero from '../assets/hero-4.jpg'
 import bucket from '../assets/bucket.png'
 import listImg from '../assets/list.png'
@@ -11,14 +12,8 @@ import flyImg from '../assets/fly.png'
 const Home = () => {
     return (
         <div className="bg-white">
-            <div className="  top-0 text-xl bg-white border p-4 flex flex-row md:px-28">
-                <h1 className="text-2xl font-bold md:px-20 ">Bucket</h1>
-                <Link to="/login" className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded bg-indigo-400 shadow text-white font-semibold ">Log in</Link>
-            </div>
 
             <div className="bg-purple-50 m-0 p-2">
-
-
 
                 <div className="md:mx-40 md:my-10  bg-white shadow-sm  mx-auto  flex md:flex-row flex-col justify-center items-center">
                     <div className="md:w-8/12      ">

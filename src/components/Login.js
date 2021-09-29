@@ -33,9 +33,6 @@ const Login = () => {
 
     return (
         <div >
-            <div className="bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-200  top-0 text-xl text-white p-4 flex flex-row">
-                <Link to="/" className="text-2xl font-semibold md:px-20 px-2">Bucket</Link>
-            </div>
             <div className="flex md:mt-10">
                 <div className=" text-center md:w-4/12 w-full mx-auto md:border-2 md:p-10 py-20 md:pt-20 rounded-2xl">
                     <h2 className="text-2xl mb-6">Login</h2>

@@ -36,9 +36,6 @@ const Signup = () => {
     return (
         <div>
 
-            <div className="bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-200  top-0 text-xl text-white p-4 flex flex-row">
-                <Link to="/" className="text-2xl font-semibold md:px-20 px-2">Bucket</Link>
-            </div>
 
             <div className="md:mt-10 flex items-center justify-center">
                 <div className="text-center w-full md:w-4/12 mx-auto py-20 px-4 md:border-2 rounded-2xl">

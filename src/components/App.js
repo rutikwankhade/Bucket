@@ -6,6 +6,8 @@ import Login from './Login'
 import Dashboard from './Dashboard'
 import Home from './Home'
 import PrivateRoute from './PrivateRoute'
+import Navbar from './Navbar'
+
 
 
 const App = () => {
@@ -15,11 +17,13 @@ const App = () => {
       <Router >
         <AuthProvider>
 
-          <Switch>
-          <Route exact path="/" component={Home} />
 
-            <PrivateRoute  path="/dashboard" component={Dashboard} />
-            <Route  path="/signup" component={Signup} />
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
           </Switch>
 
