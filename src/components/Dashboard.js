@@ -57,12 +57,12 @@ const Dashboard = () => {
 
             <div className="flex md:flex-row flex-col bg-gray-50">
 
-                <div className="bg-pink-50 md:w-4/12 px-10 fixed h-screen flex flex-col items-center">
+                <div className="bg-pink-50 md:w-4/12 md:px-10 md:fixed h-screen flex flex-col items-center">
                     {/* <img src={currentUser.photoURL || avatar} alt="avatar" className="w-24 mx-auto mt-12 border-4 border-white rounded-full" />
                     <h1 className="text-2xl text-center  py-1  ">{currentUser.displayName}</h1> */}
 
 
-                    <div className="w-full border-2 bg-white transform translate-y-10 py-4   rounded-xl  ">
+                    <div className="w-full border-2 bg-white transform md:translate-y-10 py-4   rounded-xl  ">
                         <h1 className="text-6xl text-center font-bold">{list && list.length}</h1>
                         <p className="text-xl text-center">Total goals in your bucket list.</p>
 
@@ -118,10 +118,10 @@ const Dashboard = () => {
 
 
 
-                <div className="px-10 py-4 md:-8/12 ml-auto mr-2">
+                <div className="md:px-10 py-4 md:w-8/12 ml-auto mr-2">
 
 
-                    <div className="bg-white p-4 rounded flex text-center items-center justify-center">
+                    <div className="bg-white p-4 rounded flex md:flex-row flex-wrap text-center items-center justify-center">
 
                         <div
                             onClick={(e) => setListCategory('')}
@@ -201,7 +201,7 @@ const Dashboard = () => {
                                     .map(wish => {
                                         return (
                                             <div key={wish.id}
-                                                className={`bg-white shadow-sm border rounded-md mx-4  flex flex-row ${wish.completed === false ? 'border-green-50 ' : 'border-red-50'}`}>
+                                                className={`bg-white shadow-sm border rounded-md md:mx-4  flex flex-row ${wish.completed === false ? 'border-green-50 ' : 'border-red-50'}`}>
 
                                                 <div className="p-2 px-6 flex items-center">
                                                     <input type="checkbox"
