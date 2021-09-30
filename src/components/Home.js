@@ -30,7 +30,7 @@ const Home = () => {
             <div className="bg-purple-50 m-0 p-2">
 
                 <div className="md:mx-40 md:my-10  bg-white shadow-sm  mx-auto  flex md:flex-row flex-col justify-center items-center">
-                    <div className="md:w-8/12      ">
+                    <div className="md:w-8/12 ">
 
                         <div className="p-12">
 
@@ -65,7 +65,7 @@ const Home = () => {
 
 
 
-            <div className="flex flex-row items-center px-40">
+            <div className="flex md:flex-row flex-col items-center md:px-40">
 
 
                 <div className="md:w-1/2 p-10 ">
@@ -77,7 +77,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="w-1/2">
+                <div className="md:w-1/2">
                     <h1 className="text-center text-2xl font-semibold my-6 p-2">It could be anything, no rules</h1>
                     <div className="flex flex-row flex-wrap  m-4 mx-auto justify-center">
                         <span className="bg-indigo-100 rounded-full m-2 px-6 py-2 text-xl">Adventure</span>
@@ -98,10 +98,10 @@ const Home = () => {
 
 
 
-            <div className="m-20  flex md:flex-row flex-col justify-center ">
+            <div className="md:m-20 m-4 flex md:flex-row flex-col justify-center ">
                 <img src={listImg} className="md:w-1/3" alt="illustration" />
                 <div className="md:w-1/2 mt-24">
-                    <h2 className="text-4xl font-bold mb-4 bg-yellow-200 w-max">Why create a bucket list?</h2>
+                    <h2 className="md:text-4xl text-3xl font-bold mb-4 bg-yellow-200 w-max">Why create a bucket list?</h2>
                     <div className="text-2xl">
                         <p>List and track your goals, wishes and childhood dreams. Do things that you love and care about.</p>
                         <p className="mt-4">Achieve your dreams and live your life to the fullest.</p>
@@ -111,9 +111,9 @@ const Home = () => {
 
             </div>
 
-            <div className="m-20 flex md:flex-row flex-col-reverse justify-center">
+            <div className="md:m-20 m-4 flex md:flex-row flex-col-reverse justify-center">
                 <div className="md:w-1/2 mt-24">
-                    <h2 className="text-4xl font-bold mb-4 bg-yellow-200 w-max">How to create one?</h2>
+                    <h2 className="md:text-4xl text-3xl font-bold mb-4 bg-yellow-200 w-max">How to create one?</h2>
                     <p className="text-2xl">Start with the first things that come into your head when you ask yourself, what's the thing that you always wanted to do.</p>
                     <p className="text-2xl mt-6">Don't limit yourself, Don't think about if you can or should. Imagine what would you do if you had unlimited time, money and resources.</p>
 
@@ -121,7 +121,7 @@ const Home = () => {
                 <img src={flyImg} className="md:w-1/3" alt="illustration" />
             </div>
 
-            <div className="md:w-1/2 md:mx-44 my-20">
+            <div className="md:w-1/2  my-20 text-center">
                 <Link to="signup">
                     <button className="mx-auto bg-indigo-400 text-white text-2xl px-8 py-4 rounded">📃 Create my Bucket list now</button>
                 </Link>
