@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import avatar from '../assets/avatar.svg'
 import closeIcon from '../assets/close.svg'
 
@@ -22,7 +22,7 @@ const Dashboard = () => {
 
     const titleRef = useRef();
     const descRef = useRef();
-
+    const [category, setCategory] = useState('')
 
     // const allListRef = firestore.collection(`bucketlist`)
     // const [AllList] = useCollectionData(allListRef);
@@ -39,6 +39,7 @@ const Dashboard = () => {
             title: titleRef.current.value,
             description: descRef.current.value,
             completed: false,
+            category:category
             // createdAt: firestore.FieldValue.serverTimestamp()
 
         })
@@ -85,6 +86,22 @@ const Dashboard = () => {
                             className="text-xl w-96	 mt-2 p-2 border-2 rounded outline-none" />
                         <textarea required placeholder="Tell us more!" ref={descRef}
                             className="text-xl mt-2 p-2 h-40 border-2 rounded outline-none" />
+
+                        <select
+                            onChange={(e)=>setCategory(e.target.value)}
+                            className="text-xl border p-2 rounded">
+                            <option>Travel</option>
+                            <option>Adventure</option>
+                            <option>Fun</option>
+                            <option>Creative</option>
+                            <option>Skills</option>
+                            <option>Experience</option>
+                            <option>Education</option>
+                            <option>Personal</option>
+
+
+                        </select>
+
                         <button className="text-white text-xl font-semibold  bg-indigo-400 hover:bg-indigo-500 rounded p-2 mt-2">Add to my Bucket List</button>
                     </form>
 
@@ -111,8 +128,8 @@ const Dashboard = () => {
                                             {/* <p className="mt-2 italic">{wish.description}</p> */}
                                         </div>
 
-                                        <div className="ml-auto mr-2 flex flex-col items-center">
-
+                                        <div className="ml-auto mr-2 flex flex-row items-center">
+                                            <span className="rounded-full px-6 bg-indigo-100">{ wish.category}</span>
                                             <img src={closeIcon} alt="delete" onClick={() => handleDeleteWish(wish.id)}
                                                 className="bg-gray-50 hover:bg-pink-100 rounded-full p-1 w-8 h-8  mt-2 mb-auto cursor-pointer" />
                                             {/* <button onClick={() => handleCompleteWish(wish.id, wish.completed)}
