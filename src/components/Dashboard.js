@@ -189,8 +189,8 @@ const Dashboard = () => {
                                     } else if (wish.category.toLowerCase().includes(listCategory.toLowerCase())) {
                                         return wish;
                                     }
-return 0
-                                   
+                                    return 0
+
                                 })
 
 
@@ -198,13 +198,19 @@ return 0
                                         return (
                                             <div key={wish.id}
                                                 className={`bg-white shadow-sm border rounded-md w-10/12  flex flex-row ${wish.completed === false ? 'border-green-50 ' : 'border-red-50'}`}>
-                                                <div className="p-2 px-6">
-                                                    <h1 className="text-xl font-semibold">{wish.title}</h1>
+
+                                                <div className="p-2 px-6 flex items-center">
+                                                    <input type="checkbox"
+                                                        checked={wish.completed}
+                                                        
+                                                        onClick={() => handleCompleteWish(wish.id, wish.completed)}
+                                                        className="text-green-600  h-4 w-4 mr-6" />
+
+                                                    <h1 className={`text-xl font-semibold ${wish.completed===true?'line-through text-gray-600':''}`}>{wish.title}</h1>
                                                     {/* <p className="mt-2 italic">{wish.description}</p> */}
                                                 </div>
 
                                                 <div className="ml-auto mr-2 flex flex-row items-center">
-                                                    {/* <span className="rounded-full px-6 bg-indigo-100">{wish.category}</span> */}
                                                     <img src={closeIcon} alt="delete" onClick={() => handleDeleteWish(wish.id)}
                                                         className="bg-gray-50 hover:bg-pink-100 rounded-full p-1 w-8 h-8  mt-2 mb-auto cursor-pointer" />
                                                     {/* <button onClick={() => handleCompleteWish(wish.id, wish.completed)}
