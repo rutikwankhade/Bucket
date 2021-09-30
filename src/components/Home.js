@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Typical from 'react-typical'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import { useHistory } from 'react-router-dom'
+
 
 
 import Hero from '../assets/hero-4.jpg'
@@ -10,6 +13,17 @@ import flyImg from '../assets/fly.png'
 
 
 const Home = () => {
+
+    const history = useHistory()
+    const { currentUser } = useAuth();
+
+    useEffect(() => {
+        if (currentUser) {
+            history.push('/dashboard')
+        }
+    })
+
+
     return (
         <div className="bg-white">
 
