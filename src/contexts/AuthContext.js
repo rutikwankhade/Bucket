@@ -29,7 +29,8 @@ export function AuthProvider({ children }) {
     }
 
     const signupWithGoogle = async () => {
-        return auth.signInWithRedirect(provider);
+        auth.signInWithRedirect(provider);
+        
 
     }
 

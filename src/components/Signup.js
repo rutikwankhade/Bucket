@@ -33,6 +33,16 @@ const Signup = () => {
         setLoading(false)
     }
 
+
+
+    const handleSignupWithGoogle = () => {
+        setLoading(true)
+
+        signupWithGoogle();
+        history.push('/dashboard')
+        setLoading(false)
+    }
+
     return (
         <div>
 
@@ -56,20 +66,23 @@ const Signup = () => {
                         <button disabled={loading}
                             className="px-5 py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Sign up</button>
 
-                        <button
-                            onClick={signupWithGoogle}
-                            className="border flex items-center justify-center shadow-sm rounded my-2 hover:bg-gray-100 p-2 text-xl"
-                        >
-                            <img src={googleIcon} className="mx-2 h-6 w-6" alt="google" />
-                            Continue with google
-                        </button>
-
-
-                        <div>
-                            <h2>Already a user? <Link to="/login" className="text-indigo-500 font-semibold">Log in</Link> </h2>
-                        </div>
 
                     </form>
+
+
+                    <button
+                        onClick={handleSignupWithGoogle}
+                        className="border flex items-center justify-center shadow-sm rounded my-2 hover:bg-gray-100 p-2 text-xl"
+                    >
+                        <img src={googleIcon} className="mx-2 h-6 w-6" alt="google" />
+                        Continue with google
+                    </button>
+
+
+                    <div>
+                        <h2>Already a user? <Link to="/login" className="text-indigo-500 font-semibold">Log in</Link> </h2>
+                    </div>
+
 
                 </div>
                 <img src={signupImg} alt="illustration" className="mt-10 md:mr-20 md:w-1/3 md:block hidden" />
