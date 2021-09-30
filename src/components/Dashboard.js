@@ -24,7 +24,7 @@ const Dashboard = () => {
     const descRef = useRef();
     const [category, setCategory] = useState('')
 
-    const [listcategory, setListCategory] = useState('')
+    const [listCategory, setListCategory] = useState('')
 
 
     // const allListRef = firestore.collection(`bucketlist`)
@@ -86,9 +86,9 @@ const Dashboard = () => {
                         <h1 className="text-2xl font-semibold text-center my-4">What's something you always wanted to do?</h1>
 
                         <input required placeholder="What's on your list?" ref={titleRef}
-                            className="text-xl w-96	 mt-2 p-2 border-2 rounded outline-none" />
-                        <textarea required placeholder="Tell us more!" ref={descRef}
-                            className="text-xl mt-2 p-2 h-40 border-2 rounded outline-none" />
+                            className="text-xl w-96	 my-2 p-2 border-2 rounded outline-none" />
+                        {/* <textarea required placeholder="Tell us more!" ref={descRef}
+                            className="text-xl mt-2 p-2 h-40 border-2 rounded outline-none" /> */}
 
                         <select
                             onChange={(e) => setCategory(e.target.value)}
@@ -119,36 +119,58 @@ const Dashboard = () => {
 
                     <div className="bg-white p-4 rounded flex text-center items-center justify-center">
 
-                        <div className="cursor-pointer flex flex-col bg-yellow-100 p-2 rounded shadow-sm m-2 w-24">
+                           <div
+                            onClick={(e) => setListCategory('')}
+                            className="cursor-pointer flex flex-col bg-yellow-100 p-2 rounded shadow-sm m-2 w-20">
+                            <span className="text-2xl">📑</span>
+                            <span className="text-sm font-bold">All</span>
+                        </div>
+
+                        <div
+                            onClick={(e) => setListCategory('Travel')}
+                            className="cursor-pointer flex flex-col bg-yellow-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🏖</span>
                             <span className="text-sm font-bold">Travel</span>
                         </div>
 
-                        <div className="cursor-pointer flex flex-col bg-pink-100 p-2 rounded shadow-sm m-2 w-24">
+                        <div
+                            onClick={(e) => setListCategory('Fun')}
+                            className="cursor-pointer flex flex-col bg-pink-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🎉</span>
                             <span className="text-sm font-bold">Fun</span>
                         </div>
-                        <div className=" cursor-pointer flex flex-col bg-red-100 p-2 rounded shadow-sm m-2 w-24">
+
+                        <div
+                            onClick={(e) => setListCategory('Adventure')}
+                            className="cursor-pointer flex flex-col bg-red-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🏄‍♂️</span>
                             <span className="text-sm font-bold">Adventure</span>
                         </div>
 
-                        <div className="cursor-pointer flex flex-col bg-indigo-100 p-2 rounded shadow-sm m-2 w-24">
+                        <div
+                            onClick={(e) => setListCategory('Creative')}
+                            className="cursor-pointer flex flex-col bg-indigo-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🎨</span>
                             <span className="text-sm font-bold">Creative</span>
                         </div>
 
-                        <div className="cursor-pointer flex flex-col bg-green-100 p-2 rounded shadow-sm m-2 w-24">
+                        <div
+                            onClick={(e) => setListCategory('Skills')}
+                            className="cursor-pointer flex flex-col bg-green-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🤹</span>
                             <span className="text-sm font-bold">Skills</span>
                         </div>
 
-                        <div className="cursor-pointer flex flex-col bg-purple-100 p-2 rounded shadow-sm m-2 w-24">
+                        <div
+                            onClick={(e) => setListCategory('Education')}
+                            className="cursor-pointer flex flex-col bg-purple-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🎓</span>
                             <span className="text-sm font-bold">Education</span>
                         </div>
 
-                        <div className="cursor-pointer flex flex-col bg-yellow-100 p-2 rounded shadow-sm m-2 w-24">
+                        <div
+                            onClick={(e) => setListCategory('Personal')}
+                            className="cursor-pointer flex flex-col bg-yellow-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">📙</span>
                             <span className="text-sm font-bold">Personal</span>
                         </div>
@@ -160,26 +182,37 @@ const Dashboard = () => {
                         <div className="bg-gray-50 flex flex-col mt-10 justify-center items-center">
 
 
-                            {list && list.map(wish => {
-                                return (
-                                    <div key={wish.id}
-                                        className={`bg-white shadow-sm border rounded-md w-10/12  flex flex-row ${wish.completed === false ? 'border-green-50 ' : 'border-red-50'}`}>
-                                        <div className="p-2 px-6">
-                                            <h1 className="text-xl font-semibold">{wish.title}</h1>
-                                            {/* <p className="mt-2 italic">{wish.description}</p> */}
-                                        </div>
+                            {
+                                list && list.filter((wish) => {
+                                    if (listCategory === "") {
+                                        return wish;
+                                    } else if (wish.category.toLowerCase().includes(listCategory.toLowerCase())) {
+                                        return wish;
+                                    }
+                                })
 
-                                        <div className="ml-auto mr-2 flex flex-row items-center">
-                                            {/* <span className="rounded-full px-6 bg-indigo-100">{wish.category}</span> */}
-                                            <img src={closeIcon} alt="delete" onClick={() => handleDeleteWish(wish.id)}
-                                                className="bg-gray-50 hover:bg-pink-100 rounded-full p-1 w-8 h-8  mt-2 mb-auto cursor-pointer" />
-                                            {/* <button onClick={() => handleCompleteWish(wish.id, wish.completed)}
+                                    
+                .map(wish => {
+                                    return (
+                                        <div key={wish.id}
+                                            className={`bg-white shadow-sm border rounded-md w-10/12  flex flex-row ${wish.completed === false ? 'border-green-50 ' : 'border-red-50'}`}>
+                                            <div className="p-2 px-6">
+                                                <h1 className="text-xl font-semibold">{wish.title}</h1>
+                                                {/* <p className="mt-2 italic">{wish.description}</p> */}
+                                            </div>
+
+                                            <div className="ml-auto mr-2 flex flex-row items-center">
+                                                {/* <span className="rounded-full px-6 bg-indigo-100">{wish.category}</span> */}
+                                                <img src={closeIcon} alt="delete" onClick={() => handleDeleteWish(wish.id)}
+                                                    className="bg-gray-50 hover:bg-pink-100 rounded-full p-1 w-8 h-8  mt-2 mb-auto cursor-pointer" />
+                                                {/* <button onClick={() => handleCompleteWish(wish.id, wish.completed)}
                                                 className="mb-2 mt-auto bg-indigo-400 text-white px-4 p-1 rounded ">Done</button> */}
-                                        </div>
+                                            </div>
 
-                                    </div>
-                                )
-                            })}
+                                        </div>
+                                    )
+                })}
+            
                         </div>
 
 
