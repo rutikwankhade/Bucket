@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
 import googleIcon from '../assets/google.png'
-import signupImg from '../assets/signupImg.png'
+import ideasImg from '../assets/ideas.png'
 const Signup = () => {
 
     // const userNameRef = useRef()
@@ -48,23 +48,23 @@ const Signup = () => {
 
 
             <div className="md:mt-10 flex items-center justify-center">
-                <div className="text-center w-full md:w-4/12 mx-auto py-20 px-4 md:border-2 rounded-2xl">
-                    <h2 className="text-2xl mb-4">Signup</h2>
+                <div className="text-center w-full md:w-4/12 mx-auto px-12  py-20 border shadow-sm rounded-2xl">
+                    <h2 className="text-2xl font-semibold mb-4">Create your account</h2>
                     {error && <p className="p-2 bg-red-100 m-4 mx-20">{error}</p>}
                     <form onSubmit={handleSubmit}
-                        className="flex flex-col justify-center px-10">
+                        className="flex flex-col justify-center ">
                         {/* <input type="text" placeholder="Username" ref={userNameRef}
                     className="border-2 p-2 m-2 rounded"></input> */}
 
                         <input type="email" placeholder="Email" ref={emailRef}
-                            className="border-2 p-2 m-2 rounded"></input>
+                            className="text-xl border-2 p-2 m-2 rounded"></input>
                         <input type="password" placeholder="Password" ref={passwordRef}
-                            className="border-2 p-2 m-2 rounded"></input>
+                            className="text-xl border-2 p-2 m-2 rounded"></input>
                         <input type="password" placeholder="Confirm Password" ref={passwordConfirmRef}
-                            className="border-2 p-2 m-2 rounded"></input>
+                            className="text-xl border-2 p-2 m-2 rounded"></input>
 
                         <button disabled={loading}
-                            className="px-5 py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Sign up</button>
+                            className="px-5 text-xl font-semibold py-2 mx-auto rounded w-40 m-4 bg-indigo-500 text-white">Sign up</button>
 
 
                     </form>
@@ -72,7 +72,7 @@ const Signup = () => {
 
                     <button
                         onClick={handleSignupWithGoogle}
-                        className="border flex items-center justify-center shadow-sm rounded my-2 hover:bg-gray-100 p-2 text-xl"
+                        className="mx-auto px-6 border flex items-center justify-center shadow-sm rounded my-2 hover:bg-gray-100 p-2 text-xl"
                     >
                         <img src={googleIcon} className="mx-2 h-6 w-6" alt="google" />
                         Continue with google
@@ -85,7 +85,7 @@ const Signup = () => {
 
 
                 </div>
-                <img src={signupImg} alt="illustration" className="mt-10 md:mr-20 md:w-1/3 md:block hidden" />
+                <img src={ideasImg} alt="illustration" className=" md:w-1/2 md:block hidden" />
             </div>
         </div>
     );
