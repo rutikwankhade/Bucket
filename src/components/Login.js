@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom';
 import googleIcon from '../assets/google.png'
@@ -9,12 +9,17 @@ const Login = () => {
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login, signupWithGoogle } = useAuth()
+    const { login, signupWithGoogle, currentUser } = useAuth()
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
     const history = useHistory()
 
 
+    useEffect(() => {
+        if (currentUser) {
+            history.push('/dashboard')
+        }
+    })
 
     const handleSubmit = async (e) => {
         e.preventDefault();
