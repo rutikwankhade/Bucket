@@ -45,6 +45,23 @@ const Login = () => {
         setLoading(false)
     }
 
+
+    const handleLoginAsGuest = async () => {
+
+        let email = "guest@gmail.com";
+        let password ="guest123"
+
+        try {
+            setError('')
+            setLoading(true)
+            await login(email, password)
+            history.push('/dashboard')
+        } catch {
+            setError('Failed to sign in')
+        }
+        
+    }
+
     return (
         <div >
             <div className="flex md:mt-10">
@@ -76,6 +93,8 @@ const Login = () => {
                         <img src={googleIcon} className="mx-2 h-6 w-6" alt="google" />
                         Continue with google
                     </button>
+
+                    <button className="bg-gray-700 text-white rounded-full px-10 py-2 mx-2 text-xl font-semibold my-4 hover:bg-gray-800" onClick={handleLoginAsGuest}>Continue as a guest</button>
                     <h2>Need an account? <Link to="/signup" className="text-indigo-500 font-semibold">Sign Up</Link></h2>
                 </div>
 
