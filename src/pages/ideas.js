@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { categories } from '../utils'
 
@@ -43,7 +42,7 @@ const Ideas = () => {
 
     return (
         <div>
- <div className="text-center mx-auto text-xl py-2">
+            <div className="text-center mx-auto text-xl py-2">
                 {loading ? <span> Wait I am thinking...</span> : <span></span>}
             </div>
             <div className="md:w-10/12 mx-auto flex md:flex-row flex-col justify-center py-4 flex-wrap">

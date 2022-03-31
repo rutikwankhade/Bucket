@@ -27,19 +27,24 @@ const Navbar = () => {
 
                 </div>
             </Link>
-            
+
             <Link to="/explore-ideas" className="mx-4 text-xl" >
-                <span className="mx-4">✨ Explore ideas
+                <span className="mx-4 hover:text-yellow-400">✨ Explore ideas
                 </span>
             </Link>
 
             {
                 currentUser ?
-                    <button onClick={handleLogout} className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded font-semibold ">
-                        Log out
-                    </button>
+                    <div className="ml-auto md:mr-10">
+                          <Link to="/dashboard" className="hover:text-yellow-400  mr-2 px-6 py-1 rounded  font-semibold ">
+                      dashboard
+                    </Link>
+                        <button onClick={handleLogout} className="hover:text-yellow-400  mr-2 px-6 py-1 rounded font-semibold ">
+                            Log out
+                        </button>
+                    </div>
                     :
-                    <Link to="/login" className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded  font-semibold ">
+                    <Link to="/login" className="hover:text-yellow-400 ml-auto md:mr-10 mr-2 px-6 py-1 rounded  font-semibold ">
                         Log in
                     </Link>
 
