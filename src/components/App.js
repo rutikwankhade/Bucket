@@ -10,7 +10,7 @@ import Ideas from '../pages/ideas'
 
 import PrivateRoute from './PrivateRoute'
 import Navbar from './Navbar'
-
+import Category from '../pages/category'
 
 const App = () => {
   return (
@@ -24,6 +24,9 @@ const App = () => {
               component={Home} />
             <Route exact path="/explore-ideas"
               component={Ideas} />
+            
+             <Route exact path="/:category"
+              component={Category} />
 
             <Route path="/signup"
               component={Signup} />
