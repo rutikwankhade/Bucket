@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useHistory } from 'react-router-dom'
-
+import bucket from '../assets/bucket.png'
 
 const Navbar = () => {
 
@@ -19,18 +19,22 @@ const Navbar = () => {
     }
 
     return (
-        <div className="  top-0 text-xl bg-white border p-4 flex flex-row md:px-28">
+        <div className="bg-white md:w-10/12 mx-auto rounded-full shadow-sm text-xl p-4 flex flex-row items-center md:px-20">
             <Link to="/">
-                <h1 className="text-2xl font-bold md:px-20 ">Bucket</h1>
+                <div className="flex items-center">
+                                            <img src={bucket} alt="bucket" className="w-6 h-6 mx-2" />
+                <h1 className=" font-semibold ">Bucket</h1>
+
+                </div>
             </Link>
 
             {
                 currentUser ?
-                    <button onClick={handleLogout} className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded bg-indigo-400 shadow text-white font-semibold ">
+                    <button onClick={handleLogout} className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded  shadow text-white font-semibold ">
                         Log out
                     </button>
                     :
-                    <Link to="/login" className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded bg-indigo-400 shadow text-white font-semibold ">
+                    <Link to="/login" className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded  font-semibold ">
                         Log in
                     </Link>
 

@@ -25,11 +25,11 @@ const Home = () => {
 
 
     return (
-        <div className="bg-white">
+        <div className="">
 
-            <div className="bg-purple-50 m-0 p-2">
+            <div className=" m-0 p-2">
 
-                <div className="md:mx-40 md:my-10  bg-white shadow-sm  mx-auto  flex md:flex-row flex-col justify-center items-center">
+                <div className="md:mx-40 md:my-10 rounded-xl bg-white shadow-sm  mx-auto  flex md:flex-row flex-col justify-center items-center">
                     <div className="md:w-8/12 ">
 
                         <div className="p-12">

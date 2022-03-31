@@ -13,10 +13,10 @@ import Navbar from './Navbar'
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-gray-50 py-6">
       <Router >
         <AuthProvider>
-          <Navbar />
+          <Navbar/>
           
           <Switch>
             <Route exact path="/" component={Home} />
