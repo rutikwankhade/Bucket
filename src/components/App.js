@@ -14,7 +14,7 @@ import Navbar from './Navbar'
 
 const App = () => {
   return (
-    <div className="bg-gray-50 py-6">
+    <div className="bg-yellow-50 py-6">
       <Router>
         <AuthProvider>
           <Navbar />

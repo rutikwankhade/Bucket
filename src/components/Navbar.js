@@ -35,7 +35,7 @@ const Navbar = () => {
 
             {
                 currentUser ?
-                    <button onClick={handleLogout} className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded  shadow text-white font-semibold ">
+                    <button onClick={handleLogout} className="ml-auto md:mr-10 mr-2 px-6 py-1 rounded font-semibold ">
                         Log out
                     </button>
                     :
