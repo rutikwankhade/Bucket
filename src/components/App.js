@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Signup from "../pages/Signup"
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
+import Explore from '../pages/Explore'
 import Home from '../pages/Home'
-import Ideas from '../pages/Ideas';
 import PrivateRoute from './PrivateRoute'
 import Navbar from './Navbar'
 
@@ -21,7 +21,7 @@ const App = () => {
             <Route exact path="/"
               component={Home} />
             <Route exact path="/explore-ideas"
-              component={Ideas} />
+              component={Explore} />
 
             <Route path="/signup"
               component={Signup} />

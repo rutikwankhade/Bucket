@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { categories } from '../utils'
 
-const Ideas = () => {
+const Explore = () => {
 
     const [loading, setLoading] = useState(false)
     const [ideaTag, setIdeaTag] = useState('')
@@ -86,4 +86,4 @@ const Ideas = () => {
     );
 }
 
-export default Ideas;
+export default Explore;
