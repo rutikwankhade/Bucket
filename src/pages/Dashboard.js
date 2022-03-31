@@ -55,28 +55,28 @@ const Dashboard = () => {
     return (
         <div>
 
-            <div className="flex md:flex-row flex-col bg-gray-50">
+            <div className="flex md:flex-row flex-col">
 
-                <div className="bg-pink-50 md:w-4/12 md:px-10 md:fixed h-screen flex flex-col items-center">
+                <div className=" md:w-4/12 md:px-10 md:fixed mt-4 flex flex-col items-center">
                     {/* <img src={currentUser.photoURL || avatar} alt="avatar" className="w-24 mx-auto mt-12 border-4 border-white rounded-full" />
                     <h1 className="text-2xl text-center  py-1  ">{currentUser.displayName}</h1> */}
 
 
-                    <div className="w-full border-2 bg-white transform md:translate-y-10 py-4   rounded-xl  ">
+                    <div className="w-full shadow-sm bg-white  p-4   rounded-xl  ">
                         <h1 className="text-6xl text-center font-bold">{list && list.length}</h1>
                         <p className="text-xl text-center">Total goals in your bucket list.</p>
 
-                        <div className="flex items-center justify-between px-10 pt-4">
+                        <div className="flex items-center justify-center px-10 pt-4">
 
-                            <div className="flex items-center border p-2 rounded">
-                                <span className="text-2xl font-bold mx-2 text-green-400">
+                            <div className="flex items-center border p-2 px-4 rounded-xl mx-1">
+                                <span className="text-3xl font-bold mx-2 text-green-400">
                                     {list && list.filter((wish) => wish.completed === false).length}
                                 </span>
                                 <span>Remaining</span>
                             </div>
 
-                            <div className="flex items-center border p-2 rounded">
-                                <span className="text-2xl font-bold mx-2 text-red-400">
+                            <div className="flex items-center  p-2 rounded-xl px-4 border mx-1">
+                                <span className="text-3xl font-bold mx-2 text-red-400">
                                     {list && list.filter((wish) => wish.completed === true).length}
                                 </span>
                                 <span>Completed</span>
@@ -86,33 +86,36 @@ const Dashboard = () => {
                         </div>
 
 
+
+                        <form onSubmit={handleSubmitItem} className="flex py-6 flex-col  ">
+
+
+
+                            <textarea required placeholder="What's something you always wanted to do?" ref={titleRef}
+                                className="text-xl w-full h-40  my-2 p-2 border rounded outline-none" />
+
+
+                            <select
+                                onChange={(e) => setCategory(e.target.value)}
+                                className="text-xl border p-2 rounded">
+                                <option>Travel</option>
+                                <option>Adventure</option>
+                                <option>Fun</option>
+                                <option>Creative</option>
+                                <option>Skills</option>
+                                <option>Experience</option>
+                                <option>Education</option>
+                                <option>Personal</option>
+                                <option>Challenge</option>
+
+
+                            </select>
+
+                            <button className="text-white text-xl font-semibold  bg-indigo-400 hover:bg-indigo-500 rounded p-2 mt-2">Add to my Bucket List</button>
+                        </form>
+
                     </div>
-                    <form onSubmit={handleSubmitItem} className="flex border-2 flex-col bg-white pt-20 px-6 py-10 rounded">
 
-
-                        <h1 className="text-2xl font-semibold text-center my-4">What's something you always wanted to do?</h1>
-
-                        <input required placeholder="What's on your list?" ref={titleRef}
-                            className="text-xl w-full	 my-2 p-2 border-2 rounded outline-none" />
-
-
-                        <select
-                            onChange={(e) => setCategory(e.target.value)}
-                            className="text-xl border p-2 rounded">
-                            <option>Travel</option>
-                            <option>Adventure</option>
-                            <option>Fun</option>
-                            <option>Creative</option>
-                            <option>Skills</option>
-                            <option>Experience</option>
-                            <option>Education</option>
-                            <option>Personal</option>
-
-
-                        </select>
-
-                        <button className="text-white text-xl font-semibold  bg-indigo-400 hover:bg-indigo-500 rounded p-2 mt-2">Add to my Bucket List</button>
-                    </form>
 
                 </div>
 
@@ -121,7 +124,7 @@ const Dashboard = () => {
                 <div className="md:px-10 py-4 md:w-8/12 ml-auto mr-2">
 
 
-                    <div className="bg-white p-4 rounded flex md:flex-row flex-wrap text-center items-center justify-center">
+                    <div className="bg-white p-4 rounded-xl shadow-sm flex md:flex-row flex-wrap text-center items-center justify-center">
 
                         <div
                             onClick={(e) => setListCategory('')}
@@ -183,7 +186,7 @@ const Dashboard = () => {
                     <div>
 
 
-                        <div className="bg-gray-50 flex flex-col mt-4 mx-auto overflow-y-scroll md:h-96 ">
+                        <div className=" flex flex-col mt-4 mx-auto overflow-y-scroll md:h-96 ">
 
 
                             {
@@ -201,7 +204,7 @@ const Dashboard = () => {
                                     .map(wish => {
                                         return (
                                             <div key={wish.id}
-                                                className={`bg-white shadow-sm border rounded-md md:mx-4  flex flex-row ${wish.completed === false ? 'border-green-50 ' : 'border-red-50'}`}>
+                                                className={`bg-white shadow-sm rounded-md md:mx-4 my-1 flex flex-row ${wish.completed === false ? 'border-green-50 ' : 'border-red-50'}`}>
 
                                                 <div className="p-2 px-6 flex items-center">
                                                     <input type="checkbox"
