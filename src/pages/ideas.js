@@ -1,14 +1,7 @@
-// import adventureIcon from '../assets/adventure.png'
-// import creativeIcon from '../assets/creative.png'
-// import challengeIcon from '../assets/challenge.png'
-// import experienceIcon from '../assets/experience.png'
-// import funIcon from '../assets/fun.png'
-// import skillsIcon from '../assets/skills.png'
-// import educationIcon from '../assets/education.png'
-// import travelIcon from '../assets/travel.png'
-import { Link } from 'react-router-dom'
+
 import { useState } from 'react'
 import { categories } from '../utils'
+
 const Ideas = () => {
 
     const [loading, setLoading] = useState(false)
@@ -50,14 +43,16 @@ const Ideas = () => {
 
     return (
         <div>
-
-            <div className="md:w-10/12 mx-auto flex justify-center py-4 flex-wrap">
+ <div className="text-center mx-auto text-xl py-2">
+                {loading ? <span> Wait I am thinking...</span> : <span></span>}
+            </div>
+            <div className="md:w-10/12 mx-auto flex md:flex-row flex-col justify-center py-4 flex-wrap">
 
                 {
                     categories.map(category => {
                         return (
 
-                            <div className="shadow cursor-pointer flex flex-col items-center justify-center border-gray-100  bg-white w-1/5 p-10 m-4 rounded-xl"
+                            <div className="shadow cursor-pointer flex flex-col items-center justify-center border-gray-100  bg-white md:w-1/5 p-10 m-4 rounded-xl"
                                 onClick={() => fetchIdeas(category.title)}
 
                             >
@@ -73,10 +68,6 @@ const Ideas = () => {
 
             </div>
 
-            <div className="text-center mx-auto text-xl py-2">
-                {loading ? <span> Wait I am thinking of...</span> : <span></span>}
-            </div>
-
 
             <div>
                 <h1 className="text-6xl py-6 text-gray-800 font-bold text-center capitalize">{ideaTag}</h1>
@@ -85,7 +76,7 @@ const Ideas = () => {
             <div className="flex flex-wrap justify-center md:w-10/12 mx-auto">
                 {ideas && ideas.map(idea => {
                     return (
-                        <div className="cursor-pointer bg-white transform hover:scale-125 duration-500 px-8 shadow-sm rounded-xl p-4 text-gray-700 text-2xl m-4">
+                        <div className="cursor-pointer text-center bg-white transform hover:scale-125 duration-500 px-8 shadow-sm rounded-xl p-4 text-gray-700 text-2xl m-4">
                             {idea.idea}
                         </div>
                     )

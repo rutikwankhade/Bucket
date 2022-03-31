@@ -2,15 +2,13 @@ import React from 'react';
 import { AuthProvider } from '../contexts/AuthContext';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import Signup from "./Signup"
-import Login from './Login'
-import Dashboard from './Dashboard'
-import Home from './Home'
-import Ideas from '../pages/ideas'
-
+import Signup from "../pages/Signup"
+import Login from '../pages/Login'
+import Dashboard from '../pages/Dashboard'
+import Home from '../pages/Home'
+import Ideas from '../pages/Ideas';
 import PrivateRoute from './PrivateRoute'
 import Navbar from './Navbar'
-import Category from '../pages/category'
 
 const App = () => {
   return (
@@ -24,9 +22,6 @@ const App = () => {
               component={Home} />
             <Route exact path="/explore-ideas"
               component={Ideas} />
-            
-             <Route exact path="/:category"
-              component={Category} />
 
             <Route path="/signup"
               component={Signup} />
