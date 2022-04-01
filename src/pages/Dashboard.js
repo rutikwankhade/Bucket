@@ -130,56 +130,56 @@ const Dashboard = () => {
                             onClick={(e) => setListCategory('')}
                             className="cursor-pointer flex flex-col bg-yellow-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">📑</span>
-                            <span className="text-sm font-bold">All</span>
+                            <span className="text-sm font-semibold">All</span>
                         </div>
 
                         <div
                             onClick={(e) => setListCategory('Travel')}
                             className="cursor-pointer flex flex-col bg-yellow-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🏖</span>
-                            <span className="text-sm font-bold">Travel</span>
+                            <span className="text-sm font-semibold">Travel</span>
                         </div>
 
                         <div
                             onClick={(e) => setListCategory('Fun')}
                             className="cursor-pointer flex flex-col bg-pink-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🎉</span>
-                            <span className="text-sm font-bold">Fun</span>
+                            <span className="text-sm font-semibold">Fun</span>
                         </div>
 
                         <div
                             onClick={(e) => setListCategory('Adventure')}
                             className="cursor-pointer flex flex-col bg-red-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🏄‍♂️</span>
-                            <span className="text-sm font-bold">Adventure</span>
+                            <span className="text-sm font-semibold">Adventure</span>
                         </div>
 
                         <div
                             onClick={(e) => setListCategory('Creative')}
                             className="cursor-pointer flex flex-col bg-indigo-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🎨</span>
-                            <span className="text-sm font-bold">Creative</span>
+                            <span className="text-sm font-semibold">Creative</span>
                         </div>
 
                         <div
                             onClick={(e) => setListCategory('Skills')}
                             className="cursor-pointer flex flex-col bg-green-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🤹</span>
-                            <span className="text-sm font-bold">Skills</span>
+                            <span className="text-sm font-semibold">Skills</span>
                         </div>
 
                         <div
                             onClick={(e) => setListCategory('Education')}
                             className="cursor-pointer flex flex-col bg-purple-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">🎓</span>
-                            <span className="text-sm font-bold">Education</span>
+                            <span className="text-sm font-semibold">Education</span>
                         </div>
 
                         <div
                             onClick={(e) => setListCategory('Personal')}
                             className="cursor-pointer flex flex-col bg-yellow-100 p-2 rounded shadow-sm m-2 w-20">
                             <span className="text-2xl">📙</span>
-                            <span className="text-sm font-bold">Personal</span>
+                            <span className="text-sm font-semibold">Personal</span>
                         </div>
                     </div>
 
