@@ -51,7 +51,7 @@ const Explore = () => {
                     categories.map(category => {
                         return (
 
-                            <div className="shadow-md cursor-pointer flex flex-col items-center justify-center border-gray-100  bg-white md:w-1/5 p-10 m-4 rounded-xl"
+                            <div className="shadow-xl cursor-pointer flex flex-col items-center justify-center border-gray-100  bg-white md:w-1/5 p-10 m-4 rounded-xl"
                                 onClick={() => fetchIdeas(category.title)}
 
                             >
