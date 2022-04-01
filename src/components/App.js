@@ -12,7 +12,7 @@ import Navbar from './Navbar'
 
 const App = () => {
   return (
-    <div className="bg-yellow-50 py-6">
+    <div className="bg-gradient-to-tr from-pink-50 via-yellow-50 to-purple-50 py-6">
       <Router>
         <AuthProvider>
           <Navbar />
