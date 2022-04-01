@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useHistory } from 'react-router-dom'
 
-
-
 import Hero from '../assets/hero.webp'
-import listImg from '../assets/list.png'
-import flyImg from '../assets/fly.png'
+import Hero2 from '../assets/hero2.png'
+import Hero3 from '../assets/hero3.png'
+
 
 const Home = () => {
 
@@ -65,23 +64,15 @@ const Home = () => {
 
 
 
-            <div className="flex md:flex-row flex-col items-center md:px-40">
+            <div className="flex md:flex-row md:w-8/12 mx-auto flex-col items-center">
 
-{/* 
-                <div className="md:w-1/2 p-10 ">
-                    <div className="mt-4">
-                        <img src={bucket} alt="bucket" className="w-32 h-32 mr-6" />
 
-                        <h2 className="text-2xl font-bold">bucket list</h2>
-                        <p className="text-2xl italic ">is a number of experiences or achievements that a person hopes to have or accomplish during their lifetime.</p>
-                    </div>
-                </div> */}
 
                 <div className="md:w-8/12 mx-auto">
                     <h1 className="text-center text-3xl font-semibold my-6 p-2">It could be anything, no rules</h1>
-                                            <p className="text-2xl italic text-center py-2 ">It's a number of experiences or achievements that a person hopes to have or accomplish during their lifetime.</p>
+                    <p className="text-2xl italic text-center py-2 ">It's a number of experiences or achievements that a person hopes to have or accomplish during their lifetime.</p>
 
-                    
+
                     <div className="flex flex-row flex-wrap  m-4 mx-auto justify-center">
                         <span className="bg-indigo-100 rounded-full m-2 px-6 py-2 text-xl">Adventure</span>
                         <span className="bg-pink-100 rounded-full m-2 px-6 py-2 text-xl">Fun</span>
@@ -101,10 +92,10 @@ const Home = () => {
 
 
 
-            <div className="md:m-20 m-4 flex md:flex-row flex-col justify-center ">
-                <img src={listImg} className="md:w-1/3" alt="illustration" />
-                <div className="md:w-1/2 mt-24">
-                    <h2 className="md:text-4xl text-3xl italic font-semibold mb-4 bg-yellow-100 w-max">Why create a bucket list?</h2>
+            <div className="md:w-8/12 my-10 mx-auto  bg-white  rounded-xl flex items-center md:flex-row flex-col  ">
+                <img src={Hero2} className="md:w-1/3 rounded-xl" alt="illustration" />
+                <div className=" p-10">
+                    <h2 className="md:text-4xl text-3xl font-bold mb-4">Why create a bucket list?</h2>
                     <div className="text-2xl">
                         <p>List and track your goals, wishes and childhood dreams. Do things that you love and care about.</p>
                         <p className="mt-4">Achieve your dreams and live your life to the fullest.</p>
@@ -114,22 +105,25 @@ const Home = () => {
 
             </div>
 
-            <div className="md:m-20 m-4 flex md:flex-row flex-col-reverse justify-center">
-                <div className="md:w-1/2 mt-24">
-                    <h2 className="md:text-4xl italic text-3xl font-semibold mb-4 bg-yellow-100 w-max">How to create one?</h2>
+
+
+
+            <div className="md:w-8/12 my-10 mx-auto  bg-white rounded-xl bg-white m-4 flex md:flex-row flex-col-reverse items-center">
+                <div className="p-10">
+                    <h2 className="md:text-4xl text-3xl font-bold mb-4">How to create one?</h2>
                     <p className="text-2xl">Start with the first things that come into your head when you ask yourself, what's the thing that you always wanted to do.</p>
                     <p className="text-2xl mt-6">Don't limit yourself. </p>
 
                 </div>
-                <img src={flyImg} className="md:w-1/3" alt="illustration" />
+                <img src={Hero3} className="md:w-1/3 rounded-xl" alt="illustration" />
             </div>
 
-            <div className="bg-white md:w-8/12 mx-auto shadow-lg rounded-xl my-20 p-20 text-center">
-                
-                <p className="text-3xl font-bold pb-4  ">Imagine what would you do if you had unlimited time, money and resources.</p>
-                
+            <div className="bg-indigo-400 md:w-8/12 mx-auto shadow-lg rounded-xl my-20 p-20 text-center">
+
+                <p className="text-4xl font-semibold pb-10  text-white">Imagine what would you do if you had unlimited time, money and resources.</p>
+
                 <Link to="signup">
-                    <button className="mx-auto bg-indigo-400 hover:bg-indigo-500 text-white font-semibold text-2xl px-8 py-4 rounded-xl">📃 Create my Bucket list now</button>
+                    <button className="mx-auto bg-white shadow-sm  font-semibold text-2xl px-8 py-4 rounded-xl">📃 Create my Bucket list now</button>
                 </Link>
             </div>
 
