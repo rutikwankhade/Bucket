@@ -1,11 +1,11 @@
-import adventureIcon from './assets/adventure.png'
-import creativeIcon from './assets/creative.png'
-import challengeIcon from './assets/challenge.png'
-import experienceIcon from './assets/experience.png'
-import funIcon from './assets/fun.png'
-import skillsIcon from './assets/skills.png'
-import educationIcon from './assets/education.png'
-import travelIcon from './assets/travel.png'
+import adventureIcon from './assets/adventure.webp'
+import creativeIcon from './assets/creative.webp'
+import challengeIcon from './assets/challenge.webp'
+import experienceIcon from './assets/experience.webp'
+import funIcon from './assets/fun.webp'
+import skillsIcon from './assets/skills.webp'
+import educationIcon from './assets/education.webp'
+import travelIcon from './assets/travel.webp'
 
 export const categories = [
     {

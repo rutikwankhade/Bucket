@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 
 
-import Hero from '../assets/hero-4.jpg'
+import Hero from '../assets/hero.webp'
 import listImg from '../assets/list.png'
 import flyImg from '../assets/fly.png'
 
